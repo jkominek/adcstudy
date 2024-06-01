@@ -120,6 +120,14 @@ might contribute to some of the variation in expected gain change.
   * keystick peak 530ish
   * keystick background
     * mean 73.47 sdev 1.41
+== SCALED TO ACTUAL 2V
+==  * hammer peak 342.5
+==  * hammer background
+==    * mean 4.78 sdev 1.17
+==  * keystick peak 462ish
+==  * keystick background
+==    * mean 64.09 sdev 1.23
+
 
 the keystick channel shows massive spikes on both the main data file,
 as well as the interference file. something weird is going on.
@@ -135,6 +143,13 @@ mcp3008_3V3_3V3_12750Hz_mcp6l04_1800,100pF_mic5366@2V
   * keystick peak 535ish
   * keystick background
     * mean 73.87 sdev 1.30
+== SCALED TO ACTUAL 2V
+==  * hammer peak 351.6
+==  * hammer background
+==    * mean 4.96 sdev 1.09
+==  * keystick peak 466ish
+==  * keystick background
+==    * mean 64.43 sdev 1.13
 
 none of the weird spikes here. i think something is wrong with channel #1
 on this TIA board. worth investigating electrically, but not interesting
@@ -148,3 +163,49 @@ thin film resistors, with these same capacitors? probably even higher
 background levels, along with even lower sdev. peaks of 642.5 and
 853ish?
 
+mcp3008_3V3_3V3_12750Hz_mcp6l04_2870tf,44pF_mic5366@2V
+  * hammer peak 644
+  * hammer background
+    * mean 12.29 sdev 1.94
+  * keystick peak 820-850
+  * keystick background
+    * mean 119.46 sdev 2.44
+== SCALED TO ACTUAL 2V
+==  * hammer peak 562
+==  * hammer background
+==    * mean 10.72 sdev 1.69
+==  * keystick peak 715-741
+==  * keystick background
+==    * mean 104.23 sdev 2.13
+
+ok compared to the 1800 + capacitor tests, we got exactly what we expected.
+values were scaled up by 1.595x, except the standard deviations which were
+reduced, but only a bit this time.
+
+i should note all of these capacitors are X7R, i should've used NP0 here,
+since these are in the signal path.
+
+we'll expect to see these same values again for the 100pF test, except
+with slightly lower sdevs
+
+mcp3008_3V3_3V3_12750Hz_mcp6l04_2870tf,100pF_mic5366@2V
+  * hammer peak 640
+  * hammer background
+    * mean 12.07 sdev 1.55
+  * keystick peak 865
+  * keystick background
+    * mean 122.5 sdev 3.17
+== SCALED TO ACTUAL 2V
+==  * hammer peak 558
+==  * hammer background
+==    * mean 10.53 sdev 1.35
+==  * keystick peak 754
+==  * keystick background
+==    * mean 105.95 sdev 2.76
+
+peaks were consistent (keystick is much more dependent on how i press the
+key). i'd say the background was effectively equal to the 44pF configuration.
+
+thinking these values were kind of weird, i went back and measured Vref.
+despite it being a 2V MIC5366, it is actually outputing 1.745V. so all
+the values are 14.61% higher than they ought to be.
