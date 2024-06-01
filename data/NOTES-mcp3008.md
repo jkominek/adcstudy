@@ -109,3 +109,42 @@ lower-noise resistors. since we only need one per channel, that's about
 an additional $5.40 in BOM cost to use them. the tested parts were also
 0.5% tolerance, whereas the 1800s in the previous test were 1%. that
 might contribute to some of the variation in expected gain change.
+
+
+
+2024-06-01T15:48:33.751857_mcp3008_3V3_3V3_12750Hz_mcp6l04_1800,44pF_mic5366@2V
+2024-06-01T15:48:41.738471_mcp3008_3V3_3V3_12750Hz_mcp6l04_1800,44pF_mic5366@2V_interference
+  * hammer peak 404
+  * hammer background
+    * mean 5.48 sdev 1.36
+  * keystick peak 530ish
+  * keystick background
+    * mean 73.47 sdev 1.41
+
+the keystick channel shows massive spikes on both the main data file,
+as well as the interference file. something weird is going on.
+looks like there was also some data loss in around time stamp 8250 in the
+main file. not a big issue. higher peak heights than the data collected
+without the capacitor. would've expected dampening, so that's odd.
+elevated background and noise.
+
+mcp3008_3V3_3V3_12750Hz_mcp6l04_1800,100pF_mic5366@2V
+  * hammer peak 403
+  * hammer background
+    * mean 5.68 sdev 1.25
+  * keystick peak 535ish
+  * keystick background
+    * mean 73.87 sdev 1.30
+
+none of the weird spikes here. i think something is wrong with channel #1
+on this TIA board. worth investigating electrically, but not interesting
+for the overall data collection, i don't think.
+
+peaks and background levels are effectively identical to the 44pF board.
+sdevs are very slightly lower. that's nice.
+
+so what do we predict for the next set of channels, that use the 2870
+thin film resistors, with these same capacitors? probably even higher
+background levels, along with even lower sdev. peaks of 642.5 and
+853ish?
+
