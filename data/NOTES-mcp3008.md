@@ -32,6 +32,8 @@ mcp3008_3V3_3V3_12750Hz_resistor_1800_mic5366@2V
   * keystick background
     * mean 67.06 sdev 0.861
 
+resistors were RC0805FR-071K8P
+
 hammer peak is slightly higher, but that might not be real. keystick
 peak was highly variable in the sample data, but seemed consistent.
 
@@ -80,3 +82,30 @@ low-noise, low-input bias opamps, basically without regard for
 their bandwidth. slew rate is nearly inconsequential, it looks
 like we're slewing at 0.0001 V/us in our current test data. i don't
 think they've ever made opamps with that little slew.
+
+
+
+mcp3008_3V3_3V3_12750Hz_resistor_2870tf_mic5366@2V
+  * hammer peak 554
+  * hammer background
+    * mean 10.63 sdev 1.01
+  * keystick peak 770ish (lots of variability in underlying signal)
+  * keystick background
+    * mean 105.5 sdev 1.06
+
+resistors were RG1608P-2871-D-T5
+
+okay, here's another resistor board using 2870 ohm, thin film resistors.
+they were chosen for low excess noise. the value was chosen to try and
+use more of the range of the ADC. based on the 1800 resistor board,
+all the values should be 1.595 times larger. so how'd we do? hammer
+peak is a little lower than expected, keystick seems spot on.
+hammer background was 0.6 higher than expected, hammer sdev was 2/3rds
+of expected. keystick background was 1.4 under expectation, and sdev
+was about 77% of expected.
+
+so i think we saw the noise reduction we'd hope for from inherently
+lower-noise resistors. since we only need one per channel, that's about
+an additional $5.40 in BOM cost to use them. the tested parts were also
+0.5% tolerance, whereas the 1800s in the previous test were 1%. that
+might contribute to some of the variation in expected gain change.
