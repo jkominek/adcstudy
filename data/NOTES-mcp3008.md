@@ -1,3 +1,7 @@
+note, the keystick peak is rather arbitrary, as it depends on how hard
+i press the key down.
+
+
 * LM324 vs MCP6L04 @ 1800ohm
   * Hammer background level seems lower on the 6L04, keystick
     background seems lower on the LM324.
@@ -235,7 +239,7 @@ i should recapture the original mcp6l04 w/1800 gain signal and see if it
 holds up. maybe there's just a lot of variability? maybe that was just a
 really good 6L04?
 
-2024-06-01T23:17:57.999191
+mcp3008_3V3_3V3_12750Hz_mcp6l04_2870tf,1pF_mic5366@2V
   * hammer peak 552
   * hammer background
     * mean 8.72 sdev 1.54
@@ -273,3 +277,48 @@ mcp3008_3V3_3V3_12750Hz_tlv9064_2870tf,1pF_mic5366@2V.csv
 basically the same, with maybe some of the noise filtered. still really
 bad. sigh.
 
+mcp3008_3V3_3V3_12750Hz_tsv994_2870tf_mic5366@2V
+  * hammer peak 550
+  * hammer background
+    * mean 2.04 sdev 5.44
+  * keystick peak 740s
+  * keystick background
+    * mean 104.63 sdev 4.60
+
+lowest hammer background yet, but there's a lot of very spiky noise on it.
+it'd be great if the capacitor on the feedback cleaned that up.
+
+mcp3008_3V3_3V3_12750Hz_tsv994_2870tf,47pF,NP0_mic5366@2V
+  * hammer peak 549
+  * hammer background
+    * mean 10.29 sdev 1.77
+  * keystick peak 735ish
+  * keystick background
+    * mean 107.20 sdev 2.08
+
+well. that's weird. the capacitor brought the sdev down quite a bit, but
+the background mean went up more than i'd expect. i find it hard to believe
+that the amp-to-amp variation of Voffset is so high. signal is plenty
+clean, though. looks like we had some data loss around sample 8000.
+
+mcp3008_3V3_3V3_12750Hz_tlv4314_2870tf_mic5366@2V
+  * hammer peak 550
+  * hammer background
+    * mean 9.34 sdev 2.63
+  * keystick peak 700s? lot of variation this time
+  * keystick background
+    * mean 106.82 sdev 2.60
+
+looks cleanish, but sdev isn't as good as others. mean is a smidge lower.
+curious to see what the cap does.
+
+mcp3008_3V3_3V3_12750Hz_tlv4314_2870tf,47pF,NP0_mic5366@2V
+  * hammer peak 550
+  * hammer background
+    * mean 11.89 sdev 2.10
+  * keystick peak 730s
+  * keystick background
+    * mean 105.54 sdev 2.03
+
+worse hammer background, but the sdev is lowered slightly. seems to
+be consistent with putting a capacitor on things? leakage?
