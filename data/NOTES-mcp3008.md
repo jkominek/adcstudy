@@ -209,3 +209,67 @@ key). i'd say the background was effectively equal to the 44pF configuration.
 thinking these values were kind of weird, i went back and measured Vref.
 despite it being a 2V MIC5366, it is actually outputing 1.745V. so all
 the values are 14.61% higher than they ought to be.
+
+
+mcp3008_3V3_3V3_12750Hz_mcp6l04_2870tf_mic5366@2V
+  * hammer peak 553
+  * hammer background
+    * mean 9.04 sdev 1.51
+  * keystick peak 735ish
+  * keystick background
+    * mean 101.26 sdev 1.49
+
+no capacitor at all looks like a slight improvement over the 44 and 100pF
+caps. odd that this has has worse hammer background than our original
+measurement, though. it's the same configuration as that first test but
+with a better gain resistor. though at a higher gain. noise goes up faster?
+in that case we'd be better off with a low resistor for the TIA and then
+a purely voltage amplification stage. which isn't what any of the advice
+suggests.
+
+(just to sanity check things i turned out the lights and covered up
+the sensors a bit, and only got a 0.25% reduction in background. no
+effect on sdev. no particular reason to believe that was real.)
+
+i should recapture the original mcp6l04 w/1800 gain signal and see if it
+holds up. maybe there's just a lot of variability? maybe that was just a
+really good 6L04?
+
+2024-06-01T23:17:57.999191
+  * hammer peak 552
+  * hammer background
+    * mean 8.72 sdev 1.54
+  * keystick peak 730s
+  * keystick background
+    * mean 102.26 sdev 1.62
+
+basically the same as not having 1pF. which is to be expected, 1pF is
+probably less than the stray capacitance on the board.
+
+mcp3008_3V3_3V3_12750Hz_tlv9064_2870tf_mic5366@2V
+  * hammer peak 553.5
+  * hammer background
+    * mean 11.48 sdev 4.29
+  * keystick peak 740ish
+  * keystick background
+    * mean 107.00 sdev 3.22
+
+first test with the TLV9064. background is definitely higher, and we've got
+quite a bit more noise. it's very visible on the plots. i'm assuming
+the much higher GBW is amplifying some stuff that's otherwise being filtered
+out? we only build this with 0pF and 1pF, would it be worth trying with
+100pF? best input bias and 2nd best offset voltage in the cheap class
+doesn't seem to have helped it any. if the gain theory is right we should
+see the TLV4314 do better than the TLV9054.
+
+mcp3008_3V3_3V3_12750Hz_tlv9064_2870tf,1pF_mic5366@2V.csv
+  * hammer peak 553
+  * hammer background
+    * mean 10.75 sdev 3.61
+  * keystick peak 690s
+  * keystick background
+    * mean 107.39 sdev 3.13
+
+basically the same, with maybe some of the noise filtered. still really
+bad. sigh.
+
