@@ -4,8 +4,8 @@ A set of kicad 8 boards for investigating various combinations of ADC
 and analog frontend for my [piano
 conversion](https://github.com/jkominek/piano-conversion) project.
 
-There are errors and problems with them, but I'm putting them out because
-I need to version control them, and I might as well make them available.
+There might be some errors and problems with them, but I'm not currently
+aware of any issues.
 
 # please describe the boards
 
@@ -35,15 +35,8 @@ You can of course plug whatever you want into those pins.
 
 # what's wrong with them
 
-As of the revisions you're looking at, the AFE boards have a mirrored
-connection to the ADC board. On the ADC boards I put VDD on the wrong
-end of the Glasgow port.
-
-The MCP3008 could use a reallly weak pullup on MISO, so that you can
-more easily interpret the output of the MCP3008. (Consult the timing
-diagram and notice the state of MISO before the null bit.)
-
-Probably some other stuff. I haven't assembled the ADS131M08 board yet.
+Haven't tested the ADS131M08, ADC1283 or resistor ladder boards yet,
+though I did correct the systemic issues of which I was aware.
 
 # what choices do the boards give me
 
@@ -62,3 +55,13 @@ The MCP3008 board lets you feed VDD through to VAA with just some passive
 filtering, or you can put in a linear regulator.
 
 Obviously you can swap the gain setting resistors.
+
+# quick what's best
+
+For these sorts of signals, the MCP6L04 seems good enough, with the TSV994
+probably a runner up because it is more expensive. A thin film gain resistor
+and a capacitor in parallel with that resistor which is in the ballpark
+of 10nF.
+
+I've got some more ideas for tweaking the TIA configuration with just
+passives.

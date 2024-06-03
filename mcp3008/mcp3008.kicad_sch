@@ -2241,6 +2241,139 @@
 				)
 			)
 		)
+		(symbol "Device:R_Small_US"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0.254) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 0.762 0.508 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "R_Small_US"
+				(at 0.762 -1.016 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resistor, small US symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "r resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_Small_US_1_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 1.016 -0.381) (xy 0 -0.762) (xy -1.016 -1.143) (xy 0 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 1.524) (xy 1.016 1.143) (xy 0 0.762) (xy -1.016 0.381) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 0 2.54 270)
+					(length 1.016)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 1.016)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Jumper:Jumper_2_Open"
 			(pin_numbers hide)
 			(pin_names
@@ -2947,7 +3080,7 @@
 		(uuid "2ca85e98-7954-4171-9d25-b2dec0c04210")
 	)
 	(no_connect
-		(at 199.39 82.55)
+		(at 199.39 100.33)
 		(uuid "33f96346-e9ae-4017-8c4b-16a60060faea")
 	)
 	(no_connect
@@ -2959,7 +3092,7 @@
 		(uuid "6035190e-11a7-40fa-bd3b-0465a8b52e76")
 	)
 	(no_connect
-		(at 199.39 95.25)
+		(at 199.39 87.63)
 		(uuid "9f354856-7633-42e2-aaa6-6ae318bce30c")
 	)
 	(no_connect
@@ -2983,11 +3116,11 @@
 		(uuid "e3dd666c-d5a4-4153-8a82-c530af8e5672")
 	)
 	(no_connect
-		(at 199.39 85.09)
+		(at 199.39 97.79)
 		(uuid "e592a2ff-513a-4f0e-bc75-9bbf4a07a60a")
 	)
 	(no_connect
-		(at 199.39 100.33)
+		(at 199.39 82.55)
 		(uuid "f91716b8-682e-4c88-88c7-2c430f4cf053")
 	)
 	(no_connect
@@ -3670,6 +3803,16 @@
 	)
 	(wire
 		(pts
+			(xy 223.52 124.46) (xy 223.52 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c46669f5-34f2-491b-8e10-8d76b8235db1")
+	)
+	(wire
+		(pts
 			(xy 152.4 76.2) (xy 154.94 76.2)
 		)
 		(stroke
@@ -3707,6 +3850,16 @@
 			(type default)
 		)
 		(uuid "d0f00582-c5c6-40f1-a351-60006b309b6f")
+	)
+	(wire
+		(pts
+			(xy 223.52 129.54) (xy 223.52 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d1fe15cc-17c0-4571-95f5-e1b337f95da8")
 	)
 	(wire
 		(pts
@@ -3790,7 +3943,7 @@
 	)
 	(text "IO3"
 		(exclude_from_sim no)
-		(at 213.36 89.408 0)
+		(at 212.852 89.408 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3800,7 +3953,7 @@
 	)
 	(text "IO6"
 		(exclude_from_sim no)
-		(at 213.36 97.028 0)
+		(at 212.852 97.028 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3810,7 +3963,7 @@
 	)
 	(text "IO5"
 		(exclude_from_sim no)
-		(at 213.36 94.488 0)
+		(at 212.852 94.488 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3820,7 +3973,7 @@
 	)
 	(text "Sense\n"
 		(exclude_from_sim no)
-		(at 212.344 79.248 0)
+		(at 210.82 77.978 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3830,7 +3983,7 @@
 	)
 	(text "IO7\n"
 		(exclude_from_sim no)
-		(at 213.36 99.568 0)
+		(at 212.852 99.568 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3850,13 +4003,24 @@
 	)
 	(text "IO2"
 		(exclude_from_sim no)
-		(at 213.36 86.868 0)
+		(at 212.852 86.868 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
 		(uuid "beed7083-ee27-41ca-b3b9-5c787df4d202")
+	)
+	(text "Extremely weak pullup so that when the MCP3008 is\ndon't care, we can distinguish that from the 0 bit\nthat it intentionally sends."
+		(exclude_from_sim no)
+		(at 226.822 117.602 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "c8220e00-c664-4e7d-8508-9a13083480a2")
 	)
 	(text "capacitance covered by C1,C3,C4"
 		(exclude_from_sim no)
@@ -3870,7 +4034,7 @@
 	)
 	(text "IO4"
 		(exclude_from_sim no)
-		(at 213.36 91.948 0)
+		(at 212.852 91.948 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3880,7 +4044,7 @@
 	)
 	(text "IO1"
 		(exclude_from_sim no)
-		(at 213.36 84.328 0)
+		(at 212.852 84.328 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3890,7 +4054,7 @@
 	)
 	(text "IO0"
 		(exclude_from_sim no)
-		(at 213.36 81.788 0)
+		(at 212.852 81.788 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3900,7 +4064,7 @@
 	)
 	(text "NOTE\nprobably drop-in compatible with the MCP3208\nthat only gets 100ksps at 5V. no figure quoted for 3.3V"
 		(exclude_from_sim no)
-		(at 129.794 124.714 0)
+		(at 116.332 121.666 0)
 		(effects
 			(font
 				(size 2 2)
@@ -3943,7 +4107,7 @@
 		(uuid "13314f41-2cb8-4a1b-ac83-70d54f500218")
 	)
 	(label "~{CS}"
-		(at 199.39 97.79 0)
+		(at 199.39 85.09 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4031,7 +4195,7 @@
 		(uuid "7104c92b-6627-4882-a6e4-54329d6e6056")
 	)
 	(label "MISO"
-		(at 199.39 90.17 0)
+		(at 199.39 92.71 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4074,6 +4238,17 @@
 		)
 		(uuid "83337aaf-75f0-459c-ae34-b056afe0e7e9")
 	)
+	(label "MISO"
+		(at 223.52 133.35 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8d8c8705-aa5d-480c-b8ae-7841c338c78f")
+	)
 	(label "AIN4N"
 		(at 96.52 96.52 180)
 		(fields_autoplaced yes)
@@ -4086,7 +4261,7 @@
 		(uuid "8f1de2f7-9db1-4cc7-8509-e6579918969a")
 	)
 	(label "SCLK"
-		(at 199.39 92.71 0)
+		(at 199.39 90.17 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4097,7 +4272,7 @@
 		(uuid "91aa8f8e-d625-49e3-8188-1a5912b33cf3")
 	)
 	(label "MOSI"
-		(at 199.39 87.63 0)
+		(at 199.39 95.25 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4855,16 +5030,16 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_02x10_Odd_Even")
-		(at 220.98 90.17 0)
+		(at 220.98 92.71 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "5e337834-20d4-475c-8140-93fc01d6f342")
 		(property "Reference" "J1"
-			(at 222.25 74.5955 0)
+			(at 222.25 76.962 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4872,7 +5047,7 @@
 			)
 		)
 		(property "Value" "Glasgow"
-			(at 222.25 77.0198 0)
+			(at 222.25 74.5377 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4880,7 +5055,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x10_P2.54mm_Vertical"
-			(at 220.98 90.17 0)
+			(at 220.98 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4889,7 +5064,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 220.98 90.17 0)
+			(at 220.98 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4898,7 +5073,7 @@
 			)
 		)
 		(property "Description" "Generic connector, double row, 02x10, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 220.98 90.17 0)
+			(at 220.98 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4907,7 +5082,7 @@
 			)
 		)
 		(property "DigiKey" "SSW-110-03-T-D-ND"
-			(at 220.98 90.17 0)
+			(at 220.98 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5186,6 +5361,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small_US")
+		(at 223.52 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "657efbf5-5097-49a4-9970-ec929d1990a7")
+		(property "Reference" "R1"
+			(at 225.171 125.7878 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100k"
+			(at 225.171 128.2121 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 223.52 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 223.52 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small US symbol"
+			(at 223.52 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "0aa4a8b1-e4e1-454e-8aec-b2edce12569b")
+		)
+		(pin "1"
+			(uuid "b2ed8c7c-2a56-458b-a0f4-57d0e034f608")
+		)
+		(instances
+			(project "mcp3008"
+				(path "/2788365e-935a-471c-aaba-4a57a0ad4aa0"
+					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 204.47 50.8 0)
 		(mirror y)
@@ -5456,6 +5701,72 @@
 			(project "mcp3008"
 				(path "/2788365e-935a-471c-aaba-4a57a0ad4aa0"
 					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VDD")
+		(at 223.52 121.92 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "88c3f302-c1ec-4471-b34b-a0dc86606ded")
+		(property "Reference" "#PWR016"
+			(at 223.52 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VDD"
+			(at 223.52 117.7869 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 223.52 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 223.52 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VDD\""
+			(at 223.52 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "440b4451-ea91-455f-b71a-1f4bea193a88")
+		)
+		(instances
+			(project "mcp3008"
+				(path "/2788365e-935a-471c-aaba-4a57a0ad4aa0"
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)

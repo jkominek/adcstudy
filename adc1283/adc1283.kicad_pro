@@ -430,7 +430,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "resistor.kicad_pro",
+    "filename": "adc1283.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -574,7 +574,7 @@
   },
   "sheets": [
     [
-      "7ebe27f6-63b1-46f1-bd8f-28e742a7d77c",
+      "2788365e-935a-471c-aaba-4a57a0ad4aa0",
       "Root"
     ]
   ],
