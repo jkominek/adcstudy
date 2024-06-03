@@ -1,5 +1,8 @@
 note, the keystick peak is rather arbitrary, as it depends on how hard
-i press the key down.
+i press the key down, and for some reason i was trying to measure the
+'average' location by eye rather than the actual peak-peaks, or even the
+highest peak. i should probably throw out all the keystick peak lines
+and stop collecting them, at this point. sigh.
 
 
 * LM324 vs MCP6L04 @ 1800ohm
@@ -322,3 +325,119 @@ mcp3008_3V3_3V3_12750Hz_tlv4314_2870tf,47pF,NP0_mic5366@2V
 
 worse hammer background, but the sdev is lowered slightly. seems to
 be consistent with putting a capacitor on things? leakage?
+
+
+mcp3008_3V3_3V3_12750Hz_resistor_2870tf,1pF_mic5366@2V
+  * hammer peak 543
+  * hammer background
+    * mean 10.34 sdev 1.45
+  * keystick peak 730s
+  * keystick background
+    * mean 105.25 sdev 1.36
+
+basically just worse than not having the resistor there.
+
+mcp3008_3V3_3V3_12750Hz_resistor_2870tf,47pF,NP0_mic5366@2V
+  * hammer peak 542
+  * hammer background
+    * mean 9.94 sdev 1.23
+  * keystick peak 720s
+  * keystick background
+    * mean 105.09 sdev 1.14
+
+that's an across the board improvement from 1pF, and close to being
+in the ballpark of having no capacitor there. backgrounds are a smidge
+lower, but the noise is a smidge higher.
+
+mcp3008_3V3_3V3_12750Hz_resistor_2870tf,100pF_mic5366@2V
+  * hammer peak 542
+  * hammer background
+    * mean 9.77 sdev 1.02
+  * keystick peak 700s
+  * keystick background
+    * mean 103.87 sdev 1.02
+
+alright, that's actually better than the original no-capacitor version.
+what about more capacitance?
+
+mcp3008_3V3_3V3_12750Hz_resistor_1800,tps717@1.9V
+  * hammer peak 359
+  * hammer background
+    * mean 7.73 sdev 0.94
+  * keystick peak 480s
+  * keystick background
+    * mean 69.88 sdev 0.87
+
+backgrounds are slightly higher than when we used the 1800 with a MIC5366,
+but the noise is lower. generally pretty nice looking signal.
+
+mcp3008_3V3_3V3_12750Hz_resistor_2870tf_tps717@1.9V
+  * hammer peak 571
+  * hammer background
+    * mean 13.15 sdev 1.27
+  * keystick peak 755ish
+  * keystick background
+    * mean 111.32 sdev 2.02
+
+bunch of unpleasant noisy spikes on the keystick channel. weird.
+peaks are where we'd expect them based on the previous channel, and the
+change in gain. background increase is worse than expected. keystick
+sdev isn't too surprising considering the strange spikes. they're not
+nearly as bad in the background region that i sampled, either.
+
+mcp3008_3V3_3V3_12750Hz_resistor_2870tf,100pF_tps717@1.9V
+  * hammer peak 571
+  * hammer background
+    * mean 12.64 sdev 0.96
+  * keystick peak 
+  * keystick background
+    * mean 110.21 sdev 1.10
+
+having trouble with the keystick signal, it dropped out some here, but
+we continued to see the strange noise in the interference file for the
+keystick. i wonder if i've got some wiring issue with it. mostly interested
+in the hammer signal, so i'm just going to keep going.
+
+100pF of capacitance seems to have reduced background and brought the
+noise down quite a bit. peak shape on the hammer strikes remains distinct,
+so i'm not worried about filtering at 100pF. let's see how 1nF does.
+
+mcp3008_3V3_3V3_12750Hz_resistor_2870tf,1nF_tps717@1.9V
+  * hammer peak 569
+  * hammer background
+    * mean 12.55 sdev 0.57
+  * keystick peak
+  * keystick background
+    * mean 110.18 sdev 0.50
+
+easily the cleanest signal yet. peaks still seem distinct but look
+kind of "idealized". i wouldn't be surprised if at 10nF they begin to
+lose their shape.
+
+so, ok, 1nF of filtering is reasonable for this signal. if we could
+get a peak to background ratio of 569:7 or so (81:1) with this kind
+of sdev, i think i'd be satisfied.
+
+that hammer background of 12.55 is (12.55/1023)*1.9V = 23.3mV
+with a gain of 2870, that represents (23.3mV)/2870 = 8.118 microamp
+leaking through the phototransistor. our best ever (mcp6l04 w/1800 gain)
+corresponded to 4.34 microamp through the phototransistor.
+
+based on figure 9 of the CNY70 datasheet, we'd be seeing 4-8 microamp
+of current if Vce were 5V, and the reflective card was ~7.5 to 10mm
+away. we're at a lower Vce (1.3V to 3.3V, depending), and our target
+for the hammer at least is quite a bit further away.
+
+the fig9 collector current seems to be asymptotically approaching 4uA,
+suggesting that that might be the intrinsic dark current of the device,
+at 5V Vce. certainly that's the absolute best we've ever seen, so it
+doesn't seem out of the question.
+
+so can we drain 4uA off of the signal, to balance that out? looks pretty
+easy with the TIA's, we put a high value (500k?) resistor between the
+signal and ground, and that should trickle 4uA out, which will force
+the amp to adjust. they've certainly got the head room for it.
+
+but then we've got to duplicate that noise filtering effect with one
+of the opamps. ideally a cheap one.
+
