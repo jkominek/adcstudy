@@ -488,3 +488,22 @@ mcp3008_3V3_3V3_12750Hz_tsv994_2870tf,10nF_tps717@1.9V
 
 yow, that's a huge improvement in noise. basically the same
 background as the 2.2nF.
+
+mcp3008_3V3_3V3_12750Hz_mcp6l04_2870tf,2.2nF_tps717@1.9V_bias470k
+  * hammer peak 570
+  * hammer background
+    * mean 4.42 sdev 0.63
+  * keystick peak
+  * keystick background
+    * mean 110.70 sdev 0.62
+
+(note only the hammer channel has the bias resistor here. didn't
+bother with the keystick channel, since it's very much bodged on.)
+
+Only change here was to add a 470kohm resistor from the non-inverting
+input of the opamp to ground. That should drain off about 1.9V/470k=4uA
+of current from the phototransistor. Looked like it did nearly that.
+We've got our best peak-to-background ratio yet, and while it added
+a smidge of noise compared to the 2.2nF version without the bias
+resistor, going up to 10nF eliminates far more noise than that, and
+takes us well below where I think the noise levels need to be.
