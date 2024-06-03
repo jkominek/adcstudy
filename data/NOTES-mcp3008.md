@@ -441,3 +441,50 @@ the amp to adjust. they've certainly got the head room for it.
 but then we've got to duplicate that noise filtering effect with one
 of the opamps. ideally a cheap one.
 
+mcp3008_3V3_3V3_12750Hz_mcp6l04_2870tf,2.2nF_tps717@1.9V
+  * hammer peak 577
+  * hammer background
+    * mean 9.93 sdev 0.51
+  * keystick peak 760s
+  * keystick background
+    * mean 110.69 sdev 0.59
+
+great noise reduction, hammer background is average-ish, at least.
+peak shape still looks good. hard to imagine 10pF will meaningfully
+reduce the sdev further, but i'll be curious to see what it does.
+
+mcp3008_3V3_3V3_12750Hz_mcp6l04_2870tf,10nF_tps717@1.9V
+  * hammer peak 574
+  * hammer background
+    * mean 8.04 sdev 0.36
+  * keystick peak
+  * keystick background
+    * mean 109.04 sdev 0.41
+
+well, okay, that reduced the sdev further. seems to have reduced
+background as well? this really seems about as good as i think i
+could hope for. that hammer background of 8.04 corresponds to a
+current of 5.2uA through the phototransistor.
+
+mcp3008_3V3_3V3_12750Hz_tsv994_2870tf,2.2nF_tps717@1.9V
+  * hammer peak 575
+  * hammer background
+    * mean 10.80 sdev 0.41
+  * keystick peak
+  * keystick background
+    * mean 111.13 sdev 0.40
+
+signal is clean enough, but background levels are slightly
+higher. 6L04 really seems to be a champ for that. will we see
+the background levels drop slightly with the 10nF cap?
+
+mcp3008_3V3_3V3_12750Hz_tsv994_2870tf,10nF_tps717@1.9V
+  * hammer peak 573
+  * hammer background
+    * mean 10.01 sdev 0.09
+  * keystick peak
+  * keystick background
+    * mean 111.04 sdev 0.19
+
+yow, that's a huge improvement in noise. basically the same
+background as the 2.2nF.
