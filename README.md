@@ -35,7 +35,7 @@ You can of course plug whatever you want into those pins.
 
 # what's wrong with them
 
-Haven't tested the ADS131M08, ADC1283 or resistor ladder boards yet,
+Haven't tested the ADS131M08 or resistor ladder boards yet,
 though I did correct the systemic issues of which I was aware.
 
 # what choices do the boards give me

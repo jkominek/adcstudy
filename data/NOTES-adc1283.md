@@ -12,40 +12,51 @@
       bother.
 
 adc1283_3V3_22300Hz_mcp6l04_2870tf,2.2nF_tps717@1.9V_bias470k
-  * hammer peak 2281
+  * hammer peak 2280
   * hammer background
-    * mean 18.60 sdev 3.05
+    * mean 32.73 sdev 2.43
   * keystick background
-    * mean 445.55 sdev 3.30
+    * mean 455.41 sdev 2.68
 
-okay like the corresponding record from the MCP3008 file, the bias
-resistor is only on the hammer channel, not the keystick. that said.
-looks solid. there's a weird blip and a discontinuity, i expect that's
-a result of my glasgow applet doing the data capture, i had similar
-things happen during development and didn't quite sort it all
-out. doesn't reflect on what the part is actually doing, just my
-ability to transfer it out.
+hammer background mean is twice what we'd expected from the mcp3008,
+but sdev is slightly better than we'd expect. keystick background
+doesn't show nearly the degradation.
 
-background means and sdevs went up by a bit more than 4x, which is
-disappointing, but not the end of the world. our peak-to-noise ratio
-is in the ballpark of the mcp3008's, and i think remains sufficient.
-
-quickly plotting the same thing quantized to 10 bits, overtop of this,
-shows that the extra resolution doesn't magically capture blatantly
-interesting features of the data that were missing. this part is about
-reducing the cost, and increasing the possible sample rate.
 
 adc1283_3V3_22300Hz_mcp6l04_2870tf,10nF_tps7171@1.9V
-  * hammer peak 2302
+  * hammer peak 2305
   * hammer background
-    * mean 38.68 sdev 2.46
+    * mean 52.28 sdev 2.00
   * keystick background
-    * mean 443.38 sdev 2.78
+    * mean 448.20 sdev 2.23
 
-keystick background stayed the same, so the hammer background going up
-is just because this channel doesn't have the bias resistor to bring
-the background down. that resistor is doing some good work. but we didn't
-get much reduction in sdev. do we need more capacitance? will it help?
-should i try and check this at a similar sample rate to the MCP3008?
-maybe the cap just isn't able to keep up with the charge demands of the
-higher sample rate?
+mean and sdev are both worse than we saw on the mcp3008.
+keystick background is only a little bit worse.
+
+
+adc1283_3V3_22300Hz_tsv994_2870tf,2.2nF_tps7171@1.9V
+  * hammer peak 2305
+  * hammer background
+    * mean 50.42 sdev 1.43
+  * keystick background
+    * mean 447.14 sdev 1.78
+
+hammer background is worse than we'd expected from the readings off
+the MCP3008 in the same configuration. hammer sdev is slightly better,
+keystick sdev slightly worse. huh. background can be improved with
+biasing.
+
+we do have a blip around ~70k, which i'm assuming is another transmission
+error. (original attempt to collect this turned up a different one which
+was more important to fix, and has been.)
+
+
+adc1283_3V3_22300Hz_tsv994_2870tf,10nF_tps7171@1.9V
+  * hammer peak 2295
+  * hammer background
+    * mean 59.86 sdev 0.82
+  * keystick background
+    * mean 451.98 sdev 1.31
+
+further background increase, though the sdev went down. hmm. would
+definitely like to see this with C0G 10nFs, and the bias resistor.
