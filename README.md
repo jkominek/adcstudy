@@ -58,10 +58,11 @@ Obviously you can swap the gain setting resistors.
 
 # quick what's best
 
-For these sorts of signals, the MCP6L04 seems good enough, with the TSV994
-probably a runner up because it is more expensive. A thin film gain resistor
-and a capacitor in parallel with that resistor which is in the ballpark
-of 10nF.
+For these sorts of signals, the MCP6L04 seems good enough, with the
+TSV994 probably a runner up because it is more expensive. A ~2870ohm
+thin film gain resistor and a capacitor in parallel with that resistor
+which is in the ballpark of 10nF. A bias resistor of about 470k to drain
+off dark current is also indicated.
 
 I've got some more ideas for tweaking the TIA configuration with just
 passives.
